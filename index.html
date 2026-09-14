@@ -38,7 +38,14 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
 <header style="position:sticky;top:0;z-index:50;padding:14px clamp(16px,4vw,48px);background:rgba(6,17,31,0.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)">
   <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
   <a href="#topo" style="display:flex;align-items:center;gap:10px;color:#ffffff"><img src="assets/alucell-mark-w.svg" alt="" style="height:30px;width:auto;display:block" /><span style="font-family:'Nexa',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.01em">Alucell</span></a>
-  <nav style="flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:clamp(4px,2vw,10px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;padding:0 11px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:12px;cursor:pointer" style-hover="border-color:#FFC000">
+      <span style="display:block;height:2px;width:100%;background:#ffffff;border-radius:2px"></span>
+      <span style="display:block;height:2px;width:100%;background:#ffffff;border-radius:2px"></span>
+      <span style="display:block;height:2px;width:70%;background:#FFC000;border-radius:2px"></span>
+    </button>
+  </sc-if>
+  <nav style="flex:1 1 auto;min-width:0;display:{{ navDisplay }};align-items:center;justify-content:flex-end;gap:clamp(4px,2vw,10px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
     <a href="#como-funciona" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Como funciona</a>
     <a href="#avaliacoes" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Avaliações</a>
     <a href="#duvidas" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Dúvidas</a>
@@ -47,14 +54,30 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
   </div>
 </header>
 
-<section id="topo" style="position:relative;padding:clamp(32px,7vw,72px) clamp(16px,4vw,48px) clamp(40px,8vw,80px);background:#06111f;overflow:hidden">
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <nav style="position:fixed;inset:0;z-index:60;background:#061623;display:flex;flex-direction:column;padding:14px clamp(16px,4vw,48px) 40px">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:52px">
+      <span style="display:flex;align-items:center;gap:10px"><img src="assets/alucell-mark-w.svg" alt="" style="height:30px;width:auto;display:block" /><span style="font-family:'Nexa',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.01em">Alucell</span></span>
+      <button onClick="{{ toggleMenu }}" aria-label="Fechar" style="width:46px;height:46px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:12px;color:#ffffff;font-size:24px;line-height:1;cursor:pointer">×</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;margin-top:36px">
+      <a href="#como-funciona" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Como funciona</a>
+      <a href="#avaliacoes" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Avaliações</a>
+      <a href="#duvidas" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Dúvidas</a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0" style-hover="color:#FFC000">Contato</a>
+    </div>
+    <a href="#contato" onClick="{{ closeMenu }}" style="margin-top:auto;display:block;text-align:center;background:#FFC000;color:#061623;font-weight:700;font-size:17px;padding:18px;border-radius:14px">Ir até a loja</a>
+  </nav>
+</sc-if>
+
+<section id="topo" style="position:relative;padding:clamp(32px,7vw,72px) clamp(16px,4vw,48px) clamp(40px,8vw,80px);background:#061623;overflow:hidden">
   <sc-if value="{{ heroArt }}" hint-placeholder-val="{{ false }}">
-    <div style="position:absolute;top:0;bottom:0;left:14%;right:-2%;background-image:url(assets/hero-bg-v2.png);background-size:cover;background-position:36% center;background-repeat:no-repeat;pointer-events:none"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#06111f 0%,#06111f 34%,rgba(6,17,31,0.55) 48%,rgba(6,17,31,0) 62%);pointer-events:none"></div>
+    <div style="position:absolute;top:0;bottom:0;left:clamp(14%, 1400px - 140vw, 46%);right:-2%;background-image:url(assets/hero-bg-v2.png);background-size:cover;background-position:36% center;background-repeat:no-repeat;pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#061623 0%,#061623 34%,rgba(6,22,35,0.55) 48%,rgba(6,22,35,0) 62%);pointer-events:none"></div>
   </sc-if>
   <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,56px);align-items:center;justify-content:space-between">
   <sc-if value="{{ heroMobileArt }}" hint-placeholder-val="{{ true }}">
-    <img src="assets/hero-mobile.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:calc(100% + 2 * clamp(16px,4vw,48px));margin:calc(-1 * clamp(32px,7vw,72px)) calc(-1 * clamp(16px,4vw,48px)) 8px;aspect-ratio:1080/1010;object-fit:cover;object-position:center top" />
+    <img src="assets/hero-mobile-v2.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:100%;margin:calc(-1 * clamp(8px,3vw,20px)) 0 4px;aspect-ratio:1080/870;object-fit:contain;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 74%,rgba(0,0,0,0) 99%);mask-image:linear-gradient(to bottom,#000 0%,#000 74%,rgba(0,0,0,0) 99%)" />
   </sc-if>
   <div style="flex:1 1 320px;min-width:0;max-width:560px">
     <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,10vw,76px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance">Transforme seu celular em uma <span style="color:#FFC000">solução financeira</span></h1>
@@ -224,7 +247,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;instagramPostUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/p/DdKBR_AiXU7/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Instagram&quot;}}">
 class Component extends DCLogic {
-  state = { openFaq: 0 };
+  state = { openFaq: 0, menuOpen: false };
   get igUrl() { return this.props.instagramPostUrl ?? "https://www.instagram.com/p/DdKBR_AiXU7/"; }
   setupReveal() {
     const root = this._root || document;
@@ -258,7 +281,7 @@ class Component extends DCLogic {
     this.loadIg();
     requestAnimationFrame(() => this.setupReveal());
     this._onResize = () => {
-      const w = window.innerWidth >= 1000;
+      const w = window.innerWidth >= 700;
       if (w !== this.state.wide) this.setState({ wide: w });
     };
     window.addEventListener("resize", this._onResize);
@@ -301,6 +324,11 @@ class Component extends DCLogic {
     return {
       heroArt: !!this.state.wide,
       heroMobileArt: !this.state.wide,
+      isMobile: !this.state.wide,
+      navDisplay: this.state.wide ? "flex" : "none",
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
       hasPost: !!url && !this.state.igFailed,
       noPost: !url || !!this.state.igFailed,
       instagramEmbed: url
