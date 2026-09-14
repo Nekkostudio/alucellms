@@ -76,6 +76,9 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,#061623 0%,#061623 34%,rgba(6,22,35,0.55) 48%,rgba(6,22,35,0) 62%);pointer-events:none"></div>
   </sc-if>
   <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,56px);align-items:center;justify-content:space-between">
+  <sc-if value="{{ heroMobileArt }}" hint-placeholder-val="{{ true }}">
+    <img src="assets/hero-mob.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:100%;max-width:520px;margin:0 auto -8px;aspect-ratio:1/1;object-fit:contain" />
+  </sc-if>
   <div style="flex:1 1 320px;min-width:0;max-width:560px">
     <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,10vw,76px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance">Transforme seu celular em uma <span style="color:#FFC000">solução financeira</span></h1>
     <p data-reveal data-reveal-delay="2" style="font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:rgba(255,255,255,0.72);margin:20px 0 0;max-width:30em;text-wrap:pretty">Venda seu smartphone, receba o dinheiro em até 24 horas e continue usando um aparelho por uma mensalidade fixa. Sem avalista, sem fiador, sem caução.</p>
