@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alucell — Transforme seu celular em uma solução financeira</title>
+<link rel="icon" type="image/svg+xml" href="assets/alucell-mark-w.svg" />
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="" />
+<link href="https://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #06111f; color: #ffffff; font-family: 'Nexa', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #FFC000; text-decoration: none; }
+a:hover { color: #ffffff; }
+* { box-sizing: border-box; }
+@keyframes al-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+image-slot[data-mini]::part(empty) { opacity: 0; }
+image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18); }
+@keyframes al-star { 0%, 62%, 100% { transform: scale(1); color: #FFC000; } 74% { transform: scale(1.26); color: #ffdd6b; } 86% { transform: scale(1); color: #FFC000; } }
+@media (prefers-reduced-motion: reduce) { .al-star { animation: none !important; } }
+@keyframes al-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+[data-reveal] { opacity: 0; }
+[data-reveal].is-in { animation: al-rise 0.75s cubic-bezier(.16,.84,.34,1) both; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; } [data-reveal].is-in { animation: none; } }
+</style>
+</helmet>
+
+<div style="background:#06111f;min-height:100vh;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;padding:14px clamp(16px,4vw,48px);background:rgba(6,17,31,0.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
+  <a href="#topo" style="display:flex;align-items:center;gap:10px;color:#ffffff"><img src="assets/alucell-mark-w.svg" alt="" style="height:30px;width:auto;display:block" /><span style="font-family:'Nexa',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.01em">Alucell</span></a>
+  <nav style="flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:clamp(4px,2vw,10px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+    <a href="#como-funciona" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Como funciona</a>
+    <a href="#avaliacoes" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Avaliações</a>
+    <a href="#duvidas" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Dúvidas</a>
+    <a href="#contato" style="flex:none;padding:10px 14px;border-radius:10px;background:#FFC000;color:#06111f;font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="background:#ffffff">Contato</a>
+  </nav>
+  </div>
+</header>
+
+<section id="topo" style="position:relative;padding:clamp(32px,7vw,72px) clamp(16px,4vw,48px) clamp(40px,8vw,80px);background:#06111f;overflow:hidden">
+  <sc-if value="{{ heroArt }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:0;bottom:0;left:14%;right:-2%;background-image:url(assets/hero-bg-v2.png);background-size:cover;background-position:36% center;background-repeat:no-repeat;pointer-events:none"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#06111f 0%,#06111f 34%,rgba(6,17,31,0.55) 48%,rgba(6,17,31,0) 62%);pointer-events:none"></div>
+  </sc-if>
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,56px);align-items:center;justify-content:space-between">
+  <sc-if value="{{ heroMobileArt }}" hint-placeholder-val="{{ true }}">
+    <img src="assets/hero-mobile.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:calc(100% + 2 * clamp(16px,4vw,48px));margin:calc(-1 * clamp(32px,7vw,72px)) calc(-1 * clamp(16px,4vw,48px)) 8px;aspect-ratio:1080/1010;object-fit:cover;object-position:center top" />
+  </sc-if>
+  <div style="flex:1 1 320px;min-width:0;max-width:560px">
+    <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,10vw,76px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance">Transforme seu celular em uma <span style="color:#FFC000">solução financeira</span></h1>
+    <p data-reveal data-reveal-delay="2" style="font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:rgba(255,255,255,0.72);margin:20px 0 0;max-width:30em;text-wrap:pretty">Venda seu smartphone, receba o dinheiro em até 24 horas e continue usando um aparelho por uma mensalidade fixa. Sem avalista, sem fiador, sem caução.</p>
+    <div data-reveal data-reveal-delay="3" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+      <a href="#contato" style="flex:1 1 200px;text-align:center;background:#FFC000;color:#06111f;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px" style-hover="background:#ffffff;color:#06111f">Ir até a loja</a>
+      <a href="#como-funciona" style="flex:1 1 200px;text-align:center;background:transparent;color:#ffffff;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px;border:1px solid rgba(255,255,255,0.2)" style-hover="border-color:#FFC000;color:#FFC000">Como funciona</a>
+    </div>
+    <div data-reveal data-reveal-delay="4" style="display:flex;flex-wrap:wrap;gap:clamp(20px,5vw,44px);margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1)">
+      <div><div style="font-family:'Nexa',sans-serif;font-weight:700;font-size:32px;color:#FFC000;line-height:1">24h</div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px">para o valor cair na conta</div></div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="display:flex;align-items:center">
+          <img src="assets/perfil-3.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f" />
+          <img src="assets/perfil-4.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
+          <img src="assets/perfil-5.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
+        </div>
+        <div>
+          <div style="font-family:'Nexa',sans-serif;font-weight:700;font-size:26px;line-height:1;display:flex;gap:1px">
+            <span class="al-star" style="display:inline-block;color:#FFC000;animation:al-star 2.8s ease-in-out infinite;animation-delay:0s">★</span>
+            <span class="al-star" style="display:inline-block;color:#FFC000;animation:al-star 2.8s ease-in-out infinite;animation-delay:0.1s">★</span>
+            <span class="al-star" style="display:inline-block;color:#FFC000;animation:al-star 2.8s ease-in-out infinite;animation-delay:0.2s">★</span>
+            <span class="al-star" style="display:inline-block;color:#FFC000;animation:al-star 2.8s ease-in-out infinite;animation-delay:0.3s">★</span>
+            <span class="al-star" style="display:inline-block;color:#FFC000;animation:al-star 2.8s ease-in-out infinite;animation-delay:0.4s">★</span>
+          </div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px">avaliação dos clientes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="como-funciona" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px);background:#0b1a2d;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Como funciona</div>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Dois passos para ter dinheiro na mão sem ficar sem celular</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(32px,5vw,56px)">
+      <article style="background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
+        <img src="assets/passo-1.png" alt="Atendente avaliando o celular do cliente na loja Alucell" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center 42%" />
+        <div style="padding:clamp(20px,4vw,30px)">
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">1</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Venda seu celular</h3></div>
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">Fazemos uma avaliação rápida e justa do seu smartphone. Após a aprovação da venda, <strong style="color:#ffffff;font-weight:700">o valor acordado estará disponível na sua conta em até 24 horas</strong>.</p>
+        </div>
+      </article>
+      <article style="background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
+        <img src="assets/passo-2.png" alt="Cliente saindo da loja Alucell usando o celular" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center 45%" />
+        <div style="padding:clamp(20px,4vw,30px)">
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">2</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Continue usando um smartphone</h3></div>
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">Na Alucell podemos locar o seu antigo aparelho ou algum dos dispositivos disponíveis em loja, através de mensalidades fixas.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Avaliação dos nossos clientes</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)">
+      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
+        <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
+        <blockquote style="margin:18px 0 0;font-size:clamp(16px,4vw,19px);line-height:1.55;color:rgba(255,255,255,0.88)">Ter um bom celular tem dindim nas mãos garantido! Ótimo atendimento, bem explicado e detalhado, bom negócio e agilidade. E mais, pegue o valor avaliado e ainda sai com seu celular. Gostei. Sem avalista, sem fiador, sem caução. Bora lá !!!</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
+          <img src="assets/perfil-1.png" alt="Wesley Santos" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
+          <span style="font-weight:700;font-size:16px">Wesley Santos</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
+        <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
+        <blockquote style="margin:18px 0 0;font-size:clamp(16px,4vw,19px);line-height:1.55;color:rgba(255,255,255,0.88)">EXCELENTE ATENDIMENTO, indico para pessoas que querem um produto e/ou serviço de qualidade, respeito ao cliente e seriedade no trabalho prestado.</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
+          <img src="assets/perfil-2.png" alt="Natália Alves" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
+          <span style="font-weight:700;font-size:16px">Natália Alves</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="instagram" data-reveal-group style="padding:clamp(0px,12vw,170px) clamp(16px,4vw,48px) clamp(48px,14vw,190px)">
+  <div style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,#FFC000,#e0a400);border-radius:28px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(22px,4vw,48px);align-items:center">
+    <div style="color:#06111f">
+      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(6,17,31,0.6)">Instagram</div>
+      <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(26px,5vw,40px);line-height:1.05;letter-spacing:-0.02em;margin:14px 0 0;text-wrap:balance">Siga nosso Instagram para participar de sorteios exclusivos!</h2>
+      <p style="font-size:clamp(16px,4vw,18px);line-height:1.5;margin:14px 0 0;color:rgba(6,17,31,0.78)">É a nossa forma de agradecer sua parceria. Siga e boa sorte!</p>
+      <a href="https://www.instagram.com/alucell.cg/" target="_blank" rel="noopener" style="display:inline-block;margin-top:26px;background:#06111f;color:#ffffff;font-weight:700;font-size:17px;padding:16px 28px;border-radius:14px" style-hover="background:#ffffff;color:#06111f">@alucell.cg</a>
+    </div>
+    <div style="justify-self:center;align-self:center;width:100%;max-width:360px;margin-top:clamp(-150px, 900px - 100vw, 0px);margin-bottom:clamp(-150px, 900px - 100vw, 0px)">
+      <sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}">
+        <div style="border-radius:22px;overflow:hidden;box-shadow:0 24px 50px rgba(6,17,31,0.35)">{{ instagramEmbed }}</div>
+      </sc-if>
+      <sc-if value="{{ noPost }}" hint-placeholder-val="{{ true }}">
+        <image-slot id="instagram-arte" shape="rounded" radius="22" placeholder="Arte do sorteio" style="width:100%;aspect-ratio:1/1"></image-slot>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" data-reveal-group style="padding:0 clamp(16px,4vw,48px) clamp(48px,9vw,104px)">
+  <div style="max-width:880px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Perguntas frequentes</div>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 clamp(24px,4vw,40px)">Dúvidas antes de vir até a loja</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ faq }}" as="item" hint-placeholder-count="5">
+        <div style="background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:16px;overflow:hidden">
+          <button onClick="{{ item.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:transparent;border:0;color:#ffffff;font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(16px,4vw,18px);line-height:1.4;padding:20px clamp(16px,3vw,24px);cursor:pointer;min-height:44px" style-hover="color:#FFC000">
+            <span>{{ item.q }}</span>
+            <span style="flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(255,192,0,0.14);color:#FFC000;font-size:18px;line-height:1">{{ item.sign }}</span>
+          </button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 clamp(16px,3vw,24px) 22px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72)">{{ item.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px);background:#0b1a2d;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Já é cliente Alucell?</div>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0">Venha realizar um orçamento</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="https://www.google.com/maps/place/Alucell/@-20.4659382,-54.6168543,17z/data=!3m1!4b1!4m6!3m5!1s0x9486e7ef599ae55d:0xb812331ece7d8541!8m2!3d-20.4659382!4d-54.6168543" target="_blank" rel="noopener" style="display:block;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Endereço</div>
+          <div style="font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;line-height:1.4;margin-top:8px">Rua 14 de Julho, 1671 — Centro<br />Campo Grande · MS, 79002-335</div>
+          <div style="color:#FFC000;font-weight:700;font-size:15px;margin-top:12px">Abrir no Google Maps →</div>
+        </a>
+        <a href="tel:+556730234002" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"></path></svg></span>
+          <span style="min-width:0">
+            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Telefone</span>
+            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px">(67) 3023-4002</span>
+          </span>
+        </a>
+        <a href="mailto:contato@alucell.com.br" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg></span>
+          <span style="min-width:0">
+            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">E-mail</span>
+            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px;word-break:break-all">contato@alucell.com.br</span>
+          </span>
+        </a>
+      </div>
+      <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);min-height:320px;display:flex">
+        <iframe title="Mapa da loja Alucell" src="https://maps.google.com/maps?q=Alucell%2C%20-20.4659382%2C-54.6168543&amp;ll=-20.4659382%2C-54.6168543&amp;z=17&amp;output=embed" style="width:100%;min-height:320px;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:clamp(40px,7vw,72px) clamp(16px,4vw,48px) 32px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between">
+    <div style="flex:1 1 240px">
+      <span style="display:flex;align-items:center;gap:12px"><img src="assets/alucell-mark-w.svg" alt="" style="height:44px;width:auto;display:block" /><span style="font-family:'Nexa',sans-serif;font-weight:700;font-size:28px;letter-spacing:-0.01em">Alucell</span></span>
+      <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:14px;font-weight:700;letter-spacing:0.06em">LOCADORA ALUCELL LTDA.</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://www.instagram.com/alucell.cg/" target="_blank" rel="noopener" style="padding:13px 20px;border:1px solid rgba(255,255,255,0.18);border-radius:12px;color:#ffffff;font-weight:700;font-size:15px" style-hover="border-color:#FFC000;color:#FFC000">Instagram</a>
+      <a href="https://web.facebook.com/p/Alucell-61559317971201/" target="_blank" rel="noopener" style="padding:13px 20px;border:1px solid rgba(255,255,255,0.18);border-radius:12px;color:#ffffff;font-weight:700;font-size:15px" style-hover="border-color:#FFC000;color:#FFC000">Facebook</a>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:32px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;color:rgba(255,255,255,0.4)">© 2026. Todos os direitos reservados</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;instagramPostUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/p/DdKBR_AiXU7/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Instagram&quot;}}">
+class Component extends DCLogic {
+  state = { openFaq: 0 };
+  get igUrl() { return this.props.instagramPostUrl ?? "https://www.instagram.com/p/DdKBR_AiXU7/"; }
+  setupReveal() {
+    const root = this._root || document;
+    const targets = [];
+    root.querySelectorAll("[data-reveal]").forEach(el => targets.push([el, +(el.dataset.revealDelay || 0)]));
+    root.querySelectorAll("[data-reveal-group]").forEach(sec => {
+      const kids = sec.querySelectorAll(":scope > div > *, :scope > div > div > *");
+      let i = 0;
+      sec.querySelectorAll(":scope > div").forEach(wrap => {
+        Array.from(wrap.children).forEach(el => {
+          if (el.hasAttribute("data-reveal")) return;
+          el.setAttribute("data-reveal", "");
+          targets.push([el, Math.min(i++, 4)]);
+        });
+      });
+    });
+    if (!targets.length) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = +(e.target.dataset.revealDelay || 0);
+        e.target.style.animationDelay = (d * 90) + "ms";
+        e.target.classList.add("is-in");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+    targets.forEach(([el, d]) => { el.dataset.revealDelay = d; io.observe(el); });
+    this._io = io;
+  }
+  componentDidMount() {
+    this.loadIg();
+    requestAnimationFrame(() => this.setupReveal());
+    this._onResize = () => {
+      const w = window.innerWidth >= 1000;
+      if (w !== this.state.wide) this.setState({ wide: w });
+    };
+    window.addEventListener("resize", this._onResize);
+    this._onResize();
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this._onResize); if (this._io) this._io.disconnect(); }
+  componentDidUpdate() { this.loadIg(); }
+  loadIg() {
+    if (!this.igUrl) return;
+    const run = () => window.instgrm && window.instgrm.Embeds.process();
+    if (window.instgrm) return run();
+    if (!document.getElementById("ig-embed-js")) {
+      const s = document.createElement("script");
+      s.id = "ig-embed-js"; s.async = true; s.src = "https://www.instagram.com/embed.js";
+      s.onload = run; document.body.appendChild(s);
+    }
+    this.watchIg();
+  }
+  watchIg() {
+    if (this._igWatch) return;
+    this._igWatch = true;
+    const t0 = Date.now();
+    const tick = () => {
+      const f = document.querySelector("#instagram iframe");
+      if (f && f.getBoundingClientRect().height > 100) return;
+      if (Date.now() - t0 > 3500) return this.setState({ igFailed: true });
+      setTimeout(tick, 400);
+    };
+    setTimeout(tick, 800);
+  }
+  renderVals() {
+    const url = this.igUrl;
+    const items = [
+      { q: "Preciso ficar sem meu celular?", a: "Não. Depois da venda você pode locar o mesmo aparelho e continuar usando normalmente, pagando uma mensalidade fixa." },
+      { q: "Em quanto tempo recebo o dinheiro?", a: "Após a avaliação e a aprovação da venda, o valor acordado fica disponível na sua conta em até 24 horas." },
+      { q: "Precisa de avalista, fiador ou caução?", a: "Não. Sem avalista, sem fiador e sem caução." },
+      { q: "E se eu quiser outro aparelho?", a: "Você pode locar um dos dispositivos disponíveis em loja, também com mensalidade fixa." },
+      { q: "Como faço para começar?", a: "Venha até a loja na Rua 14 de Julho, 1671 — Centro, Campo Grande. A avaliação é rápida e feita na hora." }
+    ];
+    return {
+      heroArt: !!this.state.wide,
+      heroMobileArt: !this.state.wide,
+      hasPost: !!url && !this.state.igFailed,
+      noPost: !url || !!this.state.igFailed,
+      instagramEmbed: url
+        ? React.createElement("blockquote", {
+            className: "instagram-media",
+            "data-instgrm-permalink": url,
+            "data-instgrm-version": "14",
+            key: url,
+            style: { background: "#fff", border: 0, margin: 0, width: "100%", minWidth: 0 }
+          })
+        : null,
+      faq: items.map((it, i) => ({
+        q: it.q, a: it.a,
+        open: this.state.openFaq === i,
+        sign: this.state.openFaq === i ? "−" : "+",
+        toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

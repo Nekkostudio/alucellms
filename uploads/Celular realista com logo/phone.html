@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Celular — logo na tela</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT",
+    "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js": "sha384-4rziNxOBZKQ69i+w+f89KJ55TCYquwchVbByQwmaOeIOXdOU2PLDn3kOfXHwIJC9",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js": "sha384-nbwtoZENJD3Vq+ACK0CuGQdPMuDWHkamC2KJD70EV5nfg6jQjfppKOea07YJN+N3",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js": "sha384-VofkvpG6HERhFCYbsUOHeNXBCqID2nfqkQqnVzE1jc/oPcz+qJ13ADdXH08hE+cQ"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; }
+  three-d-stage:not(:defined) { visibility: hidden; }
+  three-d-stage { display: block; width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+<three-d-stage name="celular-logo" background="#efece6" autorotate></three-d-stage>
+<script src="three-d-stage.js"></script>
+<script type="module">
+const stage = document.querySelector('three-d-stage');
+const { THREE } = await stage.ready;
+
+/* ---------- dimensions (meters) ---------- */
+const W = 0.0716, H = 0.1477, D = 0.0079, R = 0.0115;
+const BEZEL = 0.0034;
+
+/* ---------- materials ---------- */
+const mats = {
+  titanium: new THREE.MeshStandardMaterial({ name: 'titanium', color: 0xc3c7cb, metalness: 0.38, roughness: 0.34 }),
+  glass:    new THREE.MeshStandardMaterial({ name: 'front-glass', color: 0x0b0d10, metalness: 0.2, roughness: 0.06 }),
+  display:  new THREE.MeshStandardMaterial({ name: 'display', color: 0x0e1116, metalness: 0.0, roughness: 0.32, emissive: 0x0a0d12, emissiveIntensity: 1 }),
+  backglass:new THREE.MeshStandardMaterial({ name: 'back-glass', color: 0x23262a, metalness: 0.22, roughness: 0.42 }),
+  darkTrim: new THREE.MeshStandardMaterial({ name: 'dark-trim', color: 0x14161a, metalness: 0.15, roughness: 0.55 }),
+  lensGlass:new THREE.MeshStandardMaterial({ name: 'lens-glass', color: 0x0a1420, metalness: 0.3, roughness: 0.08 }),
+  logo:     new THREE.MeshStandardMaterial({ name: 'logo-yellow', color: 0xf5c518, metalness: 0.0, roughness: 0.4, emissive: 0x3a2c05, emissiveIntensity: 1 }),
+  uiWhite: new THREE.MeshStandardMaterial({ name: 'ui-white', color: 0xf2f3f5, metalness: 0.0, roughness: 0.45, emissive: 0x2a2d33, emissiveIntensity: 1 }),
+  logoMark: new THREE.MeshStandardMaterial({ name: 'logo-accent', color: 0xbcc3cb, metalness: 0.35, roughness: 0.3 })
+};
+
+/* ---------- helpers ---------- */
+function roundedRect(w, h, r) {
+  const s = new THREE.Shape();
+  const x = -w / 2, y = -h / 2;
+  s.moveTo(x + r, y);
+  s.lineTo(x + w - r, y);
+  s.quadraticCurveTo(x + w, y, x + w, y + r);
+  s.lineTo(x + w, y + h - r);
+  s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  s.lineTo(x + r, y + h);
+  s.quadraticCurveTo(x, y + h, x, y + h - r);
+  s.lineTo(x, y + r);
+  s.quadraticCurveTo(x, y, x + r, y);
+  return s;
+}
+function slab(shape, depth, opts = {}) {
+  const g = new THREE.ExtrudeGeometry(shape, Object.assign({
+    depth, curveSegments: 24, bevelEnabled: false
+  }, opts));
+  g.translate(0, 0, -depth / 2);
+  return g;
+}
+function mesh(name, geo, mat) {
+  const m = new THREE.Mesh(geo, mat);
+  m.name = name;
+  m.castShadow = true;
+  m.receiveShadow = true;
+  return m;
+}
+
+const phone = new THREE.Group();
+phone.name = 'phone';
+
+/* ---------- chassis (titanium rail with rounded edge profile) ---------- */
+const railDepth = D - 0.0016;
+const chassisGeo = new THREE.ExtrudeGeometry(roundedRect(W - 0.0016, H - 0.0016, R - 0.0008), {
+  depth: railDepth, curveSegments: 32,
+  bevelEnabled: true, bevelThickness: 0.0008, bevelSize: 0.0008, bevelOffset: 0, bevelSegments: 4
+});
+chassisGeo.translate(0, 0, -railDepth / 2);
+phone.add(mesh('chassis', chassisGeo, mats.titanium));
+
+/* ---------- front glass + display ---------- */
+const frontZ = D / 2;
+const frontGlass = mesh('front-glass', slab(roundedRect(W - 0.0012, H - 0.0012, R - 0.0006), 0.0008), mats.glass);
+frontGlass.position.z = frontZ - 0.0002;
+phone.add(frontGlass);
+
+const screenW = W - BEZEL * 2, screenH = H - BEZEL * 2;
+const display = mesh('display', slab(roundedRect(screenW, screenH, R - BEZEL + 0.001), 0.0004), mats.display);
+display.position.z = frontZ + 0.0003;
+phone.add(display);
+
+/* home indicator pill */
+const pill = mesh('home-indicator', slab(roundedRect(0.024, 0.0014, 0.0007), 0.0003), mats.uiWhite);
+pill.position.set(0, -screenH / 2 + 0.0032, frontZ + 0.0006);
+phone.add(pill);
+
+/* dynamic island */
+const island = mesh('front-camera-cutout', slab(roundedRect(0.0195, 0.0055, 0.00275), 0.0006), mats.darkTrim);
+island.position.set(0, screenH / 2 - 0.0068, frontZ + 0.0006);
+phone.add(island);
+
+/* ---------- logo on screen (extruded from the brand mark outline) ---------- */
+const LS = 0.000145;                 // svg unit -> meters
+const px = (x, y) => new THREE.Vector2((x - 137.8) * LS, (152 - y) * LS);
+const poly = pts => new THREE.Shape(pts.map(p => px(p[0], p[1])));
+
+const frame = poly([
+  [139.2, 8], [12.6, 81], [12.6, 221], [58.5, 247.5],
+  [58.5, 67.7], [219.5, 67.7], [219.5, 247.5], [263, 221], [263, 81]
+]);
+
+const shield = poly([
+  [69.6, 77.1], [208.9, 77.1], [208.9, 256.9], [139.2, 294.4], [69.6, 256.9]
+]);
+shield.holes.push(new THREE.Path([
+  [94, 176.1], [139.2, 113.4], [184.4, 176.1], [171.6, 176.1],
+  [139.2, 131.5], [106.8, 176.1]
+].map(p => px(p[0], p[1]))));
+
+const arrow = poly([[139.2, 130.7], [172.4, 174.2], [105.8, 174.2]]);
+
+const logo = new THREE.Group();
+logo.name = 'screen-logo';
+const frameMesh = mesh('logo-frame', slab(frame, 0.0005), mats.logo);
+frameMesh.position.z = 0;
+const shieldMesh = mesh('logo-shield', slab(shield, 0.0007), mats.logo);
+shieldMesh.position.z = 0.00015;
+const arrowMesh = mesh('logo-arrow', slab(arrow, 0.0009), mats.logo);
+arrowMesh.position.z = 0.0003;
+logo.add(frameMesh, shieldMesh, arrowMesh);
+logo.position.set(0, 0.006, frontZ + 0.0007);
+phone.add(logo);
+
+/* ---------- back glass ---------- */
+const back = mesh('back-glass', slab(roundedRect(W - 0.0014, H - 0.0014, R - 0.0007), 0.0009), mats.backglass);
+back.position.z = -D / 2 + 0.0003;
+phone.add(back);
+
+/* ---------- camera module ---------- */
+const camGroup = new THREE.Group();
+camGroup.name = 'camera-module';
+const plateZ = -D / 2 - 0.0011;
+const plate = mesh('camera-plate', slab(roundedRect(0.0315, 0.0315, 0.0092), 0.0022), mats.backglass);
+plate.position.z = plateZ;
+camGroup.add(plate);
+
+function lens(name, x, y) {
+  const g = new THREE.Group();
+  g.name = name;
+  const ringGeo = new THREE.CylinderGeometry(0.0057, 0.0057, 0.0022, 40);
+  ringGeo.rotateX(Math.PI / 2);
+  const ring = mesh(name + '-ring', ringGeo, mats.titanium);
+  ring.position.z = plateZ - 0.0022;
+  const barrelGeo = new THREE.CylinderGeometry(0.0043, 0.0043, 0.0009, 40);
+  barrelGeo.rotateX(Math.PI / 2);
+  const barrel = mesh(name + '-barrel', barrelGeo, mats.darkTrim);
+  barrel.position.z = plateZ - 0.0034;
+  const glassGeo = new THREE.SphereGeometry(0.0041, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2);
+  glassGeo.rotateX(-Math.PI / 2);
+  const glass = mesh(name + '-glass', glassGeo, mats.lensGlass);
+  glass.position.z = plateZ - 0.0038;
+  g.add(ring, barrel, glass);
+  g.position.set(x, y, 0);
+  return g;
+}
+camGroup.add(lens('lens-wide', -0.0074, 0.0074));
+camGroup.add(lens('lens-ultrawide', -0.0074, -0.0074));
+camGroup.add(lens('lens-tele', 0.0074, -0.0074));
+
+const flashGeo = new THREE.CylinderGeometry(0.0026, 0.0026, 0.001, 28);
+flashGeo.rotateX(Math.PI / 2);
+const flash = mesh('flash', flashGeo, mats.uiWhite);
+flash.position.set(0.0074, 0.0074, plateZ - 0.0016);
+camGroup.add(flash);
+
+camGroup.position.set(-W / 2 + 0.0215, H / 2 - 0.0215, 0);
+phone.add(camGroup);
+
+/* ---------- side buttons ---------- */
+function button(name, w, h, x, y) {
+  const g = new THREE.BoxGeometry(w, h, D - 0.0032);
+  const m = mesh(name, g, mats.titanium);
+  m.position.set(x, y, 0);
+  return m;
+}
+phone.add(button('button-volume-up', 0.0011, 0.0135, -W / 2 - 0.00035, 0.030));
+phone.add(button('button-volume-down', 0.0011, 0.0135, -W / 2 - 0.00035, 0.0135));
+phone.add(button('button-action', 0.0011, 0.0082, -W / 2 - 0.00035, 0.0485));
+phone.add(button('button-power', 0.0011, 0.0225, W / 2 + 0.00035, 0.031));
+
+/* ---------- bottom: port + speaker grille ---------- */
+const port = mesh('usb-c-port', slab(roundedRect(0.0088, 0.0028, 0.0014), 0.0012), mats.darkTrim);
+port.rotation.x = Math.PI / 2;
+port.position.set(0, -H / 2 + 0.0004, 0);
+phone.add(port);
+
+const grille = new THREE.Group();
+grille.name = 'speaker-grille';
+for (let i = 0; i < 4; i++) {
+  const hGeo = new THREE.CylinderGeometry(0.00055, 0.00055, 0.0014, 16);
+  const h = mesh('speaker-hole-' + (i + 1), hGeo, mats.darkTrim);
+  h.position.set(0.0115 + i * 0.0026, -H / 2 + 0.0004, 0);
+  grille.add(h);
+  const h2 = h.clone();
+  h2.name = 'mic-hole-' + (i + 1);
+  h2.position.x = -h.position.x;
+  grille.add(h2);
+}
+phone.add(grille);
+
+/* rest the base on y = 0 */
+phone.position.y = H / 2;
+stage.setObject(phone);
+</script>
+</body>
+</html>
