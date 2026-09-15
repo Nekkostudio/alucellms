@@ -140,9 +140,9 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
     <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Catálogo</div>
     <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Aparelhos disponíveis para locação</h2>
     <p style="font-size:clamp(16px,4vw,18px);line-height:1.55;color:rgba(255,255,255,0.65);margin:14px 0 0;max-width:34em">Aparelhos usados, em perfeito estado. Mediante disponibilidade em loja.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:clamp(16px,2.5vw,24px);margin-top:clamp(28px,4vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,calc(50% - 8px)),1fr));gap:clamp(12px,2.5vw,24px);margin-top:clamp(28px,4vw,48px)">
       <sc-for list="{{ aparelhos }}" as="d" hint-placeholder-count="5">
-        <article style="display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden">
+        <article style="display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;grid-column:{{ d.span }}">
           <sc-if value="{{ d.foto }}" hint-placeholder-val="{{ false }}">
             <img src="{{ d.foto }}" alt="{{ d.slotLabel }}" style="display:block;width:100%;height:clamp(230px,24vw,300px);flex:none;object-fit:cover;object-position:center" />
           </sc-if>
@@ -414,10 +414,11 @@ class Component extends DCLogic {
       { slot: "ap-galaxy-a15", foto: "assets/ap-galaxy-a15.png", marca: "Samsung", modelo: "Galaxy A15", capacidade: "5G",
         tela: "Super AMOLED, Full HD+ (1080 x 2340 pixels)", chip: "MediaTek Dimensity 6100+",
         camera: "Câmera Principal: 50 MP.", armazenamento: "128 GB" }
-    ].map(d => ({
+    ].map((d, i) => ({
       ...d,
       slotLabel: "Foto do " + d.modelo,
       semFoto: !d.foto,
+      span: (!this.state.wide && i === 4) ? "span 2" : "auto",
       wa: "https://wa.me/" + (this.props.whatsapp ?? "556730234002") +
           "?text=" + encodeURIComponent("Olá! Quero saber a disponibilidade do " + d.marca + " " + d.modelo + " " + d.capacidade + ".")
     }));
