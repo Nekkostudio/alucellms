@@ -140,9 +140,9 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
     <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Catálogo</div>
     <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Aparelhos disponíveis para locação</h2>
     <p style="font-size:clamp(16px,4vw,18px);line-height:1.55;color:rgba(255,255,255,0.65);margin:14px 0 0;max-width:34em">Aparelhos usados, em perfeito estado. Mediante disponibilidade em loja.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,calc(50% - 8px)),1fr));gap:clamp(12px,2.5vw,24px);margin-top:clamp(28px,4vw,48px)">
+    <div style="display:{{ catDisplay }};grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:clamp(12px,2.5vw,24px);margin-top:clamp(28px,4vw,48px);overflow-x:{{ catOverflow }};scroll-snap-type:x mandatory;scrollbar-width:none;margin-left:{{ catBleed }};margin-right:{{ catBleed }};padding-left:{{ catPad }};padding-right:{{ catPad }}">
       <sc-for list="{{ aparelhos }}" as="d" hint-placeholder-count="5">
-        <article style="display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;grid-column:{{ d.span }}">
+        <article style="display:flex;flex-direction:column;flex:{{ catCardFlex }};width:{{ catCardWidth }};scroll-snap-align:center;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden">
           <sc-if value="{{ d.foto }}" hint-placeholder-val="{{ false }}">
             <img src="{{ d.foto }}" alt="{{ d.slotLabel }}" style="display:block;width:100%;height:clamp(230px,24vw,300px);flex:none;object-fit:cover;object-position:center" />
           </sc-if>
@@ -151,8 +151,12 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
           </sc-if>
           <div style="display:flex;flex-direction:column;flex:1;padding:clamp(18px,3vw,24px)">
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">{{ d.marca }}</div>
-            <h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(20px,4.5vw,24px);line-height:1.15;margin:8px 0 0;min-height:2.3em">{{ d.modelo }} <span style="color:#FFC000">{{ d.capacidade }}</span></h3>
-            <div style="display:flex;flex-direction:column;gap:10px;margin:18px 0 24px">
+            <h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(20px,4.5vw,24px);line-height:1.15;margin:8px 0 0;min-height:{{ catTitleMin }}">{{ d.modelo }} <span style="color:#FFC000">{{ d.capacidade }}</span></h3>
+            <sc-if value="{{ catCompact }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ d.toggleSpecs }}" style="display:flex;align-items:center;gap:6px;margin:6px 0 18px;padding:0;background:transparent;border:0;font-family:'Nexa',sans-serif;font-weight:700;font-size:14px;color:#FFC000;cursor:pointer;min-height:44px">{{ d.specsLabel }}<span style="font-size:13px">{{ d.specsArrow }}</span></button>
+            </sc-if>
+            <sc-if value="{{ d.showSpecs }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:10px;margin:0 0 20px">
               <div style="display:flex;align-items:flex-start;gap:10px">
                 <span style="flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(255,192,0,0.12)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><path d="M10.5 5.2h3"></path></svg></span>
                 <span style="font-size:14px;line-height:1.45;color:rgba(255,255,255,0.76)">{{ d.tela }}</span>
@@ -170,6 +174,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
                 <span style="font-size:14px;line-height:1.45;color:rgba(255,255,255,0.76)">{{ d.armazenamento }}</span>
               </div>
             </div>
+            </sc-if>
             <a href="{{ d.wa }}" target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:13px 16px;border-radius:12px;background:#FFC000;color:#061623;font-weight:700;font-size:15px" style-hover="background:#ffffff">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.02.07-1.75-.11-.44-.11-1.01-.3-1.75-.62-3.08-1.33-5.09-4.44-5.24-4.64-.15-.2-1.25-1.66-1.25-3.17 0-1.51.79-2.25 1.07-2.56.28-.31.61-.38.82-.38.2 0 .41 0 .59.01.19.01.44-.7.69.53.24.6.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.34 1.45.3.15.48.13.65-.08.18-.2.76-.89.97-1.2.2-.3.4-.25.68-.15.28.1 1.76.83 2.06.98.3.15.5.22.57.35.07.13.07.76-.18 1.44z"></path></svg>
               Consultar no WhatsApp
@@ -295,7 +300,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;instagramPostUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/p/DdKBR_AiXU7/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Instagram&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;556730234002&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
 class Component extends DCLogic {
-  state = { openFaq: 0, menuOpen: false, wide: typeof window !== "undefined" && window.innerWidth >= 700 };
+  state = { openFaq: 0, openSpec: -1, menuOpen: false, wide: typeof window !== "undefined" && window.innerWidth >= 700 };
   get igUrl() { return this.props.instagramPostUrl ?? "https://www.instagram.com/p/DdKBR_AiXU7/"; }
   reveal(el) {
     const d = +(el.dataset.revealDelay || 0);
@@ -418,12 +423,24 @@ class Component extends DCLogic {
       ...d,
       slotLabel: "Foto do " + d.modelo,
       semFoto: !d.foto,
-      span: (!this.state.wide && i === 4) ? "span 2" : "auto",
+      showSpecs: this.state.wide || this.state.openSpec === i,
+      specsLabel: (!this.state.wide && this.state.openSpec === i) ? "Ocultar especificações" : "Ver especificações",
+      specsArrow: (!this.state.wide && this.state.openSpec === i) ? "▲" : "▼",
+      toggleSpecs: () => this.setState(s => ({ openSpec: s.openSpec === i ? -1 : i })),
       wa: "https://wa.me/" + (this.props.whatsapp ?? "556730234002") +
           "?text=" + encodeURIComponent("Olá! Quero saber a disponibilidade do " + d.marca + " " + d.modelo + " " + d.capacidade + ".")
     }));
+    const w = this.state.wide;
     return {
       aparelhos,
+      catCompact: !w,
+      catDisplay: w ? "grid" : "flex",
+      catOverflow: w ? "visible" : "auto",
+      catCardFlex: w ? "auto" : "0 0 78%",
+      catCardWidth: w ? "auto" : "78%",
+      catTitleMin: w ? "2.3em" : "auto",
+      catBleed: w ? "0px" : "calc(-1 * clamp(16px,4vw,48px))",
+      catPad: w ? "0px" : "clamp(16px,4vw,48px)",
       heroArt: !!this.state.wide,
       heroMobileArt: !this.state.wide,
       isMobile: !this.state.wide,
