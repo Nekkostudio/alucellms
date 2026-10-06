@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alucell — Transforme seu celular em uma solução financeira</title>
+<title>Alucell — Receba pelo seu smartphone e continue usando ele | Campo Grande</title>
 <link rel="icon" type="image/svg+xml" href="assets/alucell-mark-w.svg" />
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="" />
 <link href="https://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet" />
@@ -47,9 +47,9 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
   </sc-if>
   <nav style="flex:1 1 auto;min-width:0;display:{{ navDisplay }};align-items:center;justify-content:flex-end;gap:clamp(4px,2vw,10px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
     <a href="#como-funciona" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Como funciona</a>
-    <a href="#aparelhos" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Aparelhos</a>
     <a href="#avaliacoes" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Avaliações</a>
     <a href="#duvidas" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Dúvidas</a>
+    <a href="#aparelhos" style="flex:none;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.82);font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="color:#FFC000;background:rgba(255,255,255,0.06)">Aparelhos</a>
     <a href="#contato" style="flex:none;padding:10px 14px;border-radius:10px;background:#FFC000;color:#06111f;font-weight:700;font-size:clamp(13px,3.4vw,15px);white-space:nowrap" style-hover="background:#ffffff">Contato</a>
   </nav>
   </div>
@@ -63,12 +63,12 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
     </div>
     <div style="display:flex;flex-direction:column;gap:2px;margin-top:36px">
       <a href="#como-funciona" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Como funciona</a>
-      <a href="#aparelhos" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Aparelhos</a>
       <a href="#avaliacoes" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Avaliações</a>
       <a href="#duvidas" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Dúvidas</a>
-      <a href="#contato" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0" style-hover="color:#FFC000">Contato</a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="color:#FFC000">Contato</a>
+      <a href="#aparelhos" onClick="{{ closeMenu }}" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(28px,8vw,40px);color:#ffffff;padding:12px 0" style-hover="color:#FFC000">Aparelhos</a>
     </div>
-    <a href="#contato" onClick="{{ closeMenu }}" style="margin-top:auto;display:block;text-align:center;background:#FFC000;color:#061623;font-weight:700;font-size:17px;padding:18px;border-radius:14px">Ir até a loja</a>
+    <a href="{{ waMain }}" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:#FFC000;color:#061623;font-weight:700;font-size:17px;padding:18px;border-radius:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.42 1.3-1.96 1.35-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.97-4.72-4.15-.14-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.1.18-.14.3-.28.46l-.42.48c-.14.14-.28.29-.12.57.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.7-.82.89-1.1.18-.27.37-.23.62-.14.25.09 1.6.76 1.88.9.27.13.46.2.53.31.07.12.07.68-.17 1.36z"></path></svg>Falar no WhatsApp</a>
   </nav>
 </sc-if>
 
@@ -81,20 +81,22 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
   <sc-if value="{{ heroMobileArt }}" hint-placeholder-val="{{ true }}">
     <img src="assets/hero-mob.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:100%;max-width:520px;margin:0 auto -8px;aspect-ratio:1/1;object-fit:contain" />
   </sc-if>
-  <div style="flex:1 1 320px;min-width:0;max-width:560px">
-    <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,10vw,76px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance">Transforme seu celular em uma <span style="color:#FFC000">solução financeira</span></h1>
-    <p data-reveal data-reveal-delay="2" style="font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:rgba(255,255,255,0.72);margin:20px 0 0;max-width:30em;text-wrap:pretty">Venda seu smartphone, receba o dinheiro em até 24 horas e continue usando um aparelho por uma mensalidade fixa. Sem avalista, sem fiador, sem caução.</p>
-    <div data-reveal data-reveal-delay="3" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
-      <a href="#contato" style="flex:1 1 200px;text-align:center;background:#FFC000;color:#06111f;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px" style-hover="background:#ffffff;color:#06111f">Ir até a loja</a>
-      <a href="#como-funciona" style="flex:1 1 200px;text-align:center;background:transparent;color:#ffffff;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px;border:1px solid rgba(255,255,255,0.2)" style-hover="border-color:#FFC000;color:#FFC000">Como funciona</a>
+  <div style="flex:1 1 320px;min-width:0;max-width:600px">
+    <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,5.2vw,68px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance"><span style="white-space:{{ heroNowrap }}">Tá precisando</span><br style="display:{{ heroBr }}" /> <span style="white-space:{{ heroNowrap }}">de dinheiro? <span style="color:#FFC000">Tem</span></span><br style="display:{{ heroBr }}" /> <span style="color:#FFC000;white-space:{{ heroNowrap }}">um smartphone?</span></h1>
+    <p data-reveal data-reveal-delay="2" style="font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:rgba(255,255,255,0.72);margin:20px 0 0;max-width:30em;text-wrap:pretty">Na ALUCELL, você pode receber pelo seu aparelho e continuar usando ele. Fale com nossa equipe e saiba como funciona.</p>
+    <div data-reveal data-reveal-delay="3" style="display:grid;grid-template-columns:{{ heroBtnCols }};gap:12px;margin-top:32px">
+      <a href="{{ waMain }}" target="_blank" rel="noopener" style="flex:1 1 200px;display:flex;align-items:center;justify-content:center;gap:10px;background:#FFC000;color:#06111f;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px;white-space:nowrap" style-hover="background:#ffffff;color:#06111f"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.42 1.3-1.96 1.35-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.97-4.72-4.15-.14-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.1.18-.14.3-.28.46l-.42.48c-.14.14-.28.29-.12.57.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.7-.82.89-1.1.18-.27.37-.23.62-.14.25.09 1.6.76 1.88.9.27.13.46.2.53.31.07.12.07.68-.17 1.36z"></path></svg>Falar no WhatsApp</a>
+      <a href="#contato" style="flex:1 1 200px;display:flex;align-items:center;justify-content:center;background:transparent;color:#ffffff;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px;border:1px solid rgba(255,255,255,0.2)" style-hover="border-color:#FFC000;color:#FFC000">Ver localização</a>
     </div>
+    <p data-reveal data-reveal-delay="3" style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.6);margin:16px 0 0;max-width:34em">Avaliação presencial em Campo Grande. Sujeito à aprovação do aparelho e às condições da contratação.</p>
+    <a data-reveal data-reveal-delay="3" href="#aparelhos" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:18px;padding:18px 26px;border-radius:14px;background:#ffffff;border:1px solid #ffffff;font-weight:700;font-size:17px;color:#061623" style-hover="background:#FFC000;border-color:#FFC000;color:#061623"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"></rect><path d="M10.5 18.2h3"></path></svg>Quero alugar um aparelho</a>
     <div data-reveal data-reveal-delay="4" style="display:flex;flex-wrap:wrap;gap:clamp(20px,5vw,44px);margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1)">
-      <div><div style="font-family:'Nexa',sans-serif;font-weight:700;font-size:32px;color:#FFC000;line-height:1">24h</div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px">para o valor cair na conta</div></div>
+      <div><div style="font-family:'Nexa',sans-serif;font-weight:700;font-size:32px;color:#FFC000;line-height:1">24h</div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px;max-width:15em;line-height:1.4">para o valor cair na conta, após a aprovação da venda</div></div>
       <div style="display:flex;align-items:center;gap:14px">
         <div style="display:flex;align-items:center">
-          <img src="assets/perfil-3.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f" />
-          <img src="assets/perfil-4.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
-          <img src="assets/perfil-5.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
+          <img src="assets/perfil-3b.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f" />
+          <img src="assets/perfil-4b.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
+          <img src="assets/perfil-5b.png" alt="" style="display:block;width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;object-position:center 25%;box-shadow:0 0 0 2px #06111f;margin-left:-12px" />
         </div>
         <div>
           <div style="font-family:'Nexa',sans-serif;font-weight:700;font-size:26px;line-height:1;display:flex;gap:1px">
@@ -115,34 +117,136 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
 <section id="como-funciona" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px);background:#0b1a2d;border-top:1px solid rgba(255,255,255,0.06)">
   <div style="max-width:1240px;margin:0 auto">
     <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Como funciona</div>
-    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Dois passos para ter dinheiro na mão sem ficar sem celular</h2>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Você vende o aparelho e pode continuar usando ele</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(32px,5vw,56px)">
       <article style="background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
-        <img src="assets/passo-1.png" alt="Atendente avaliando o celular do cliente na loja Alucell" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center 42%" />
+        <img src="assets/loja-1.jpg" alt="Equipe da Alucell atendendo clientes na loja em Campo Grande" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center" />
         <div style="padding:clamp(20px,4vw,30px)">
-          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">1</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Venda seu celular</h3></div>
-          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">Fazemos uma avaliação rápida e justa do seu smartphone. Após a aprovação da venda, <strong style="color:#ffffff;font-weight:700">o valor acordado estará disponível na sua conta em até 24 horas</strong>.</p>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">1</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Avaliação e compra do aparelho</h3></div>
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">A ALUCELL avalia presencialmente o seu smartphone. Com a proposta aprovada e formalizada, <strong style="color:#ffffff;font-weight:700">compramos o aparelho e pagamos o valor combinado</strong>.</p>
         </div>
       </article>
       <article style="background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden;display:flex;flex-direction:column">
-        <img src="assets/passo-2.png" alt="Cliente saindo da loja Alucell usando o celular" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center 45%" />
+        <img src="assets/loja-2.jpg" alt="Clientes aguardando atendimento na loja Alucell" style="display:block;width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center" />
         <div style="padding:clamp(20px,4vw,30px)">
-          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">2</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Continue usando um smartphone</h3></div>
-          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">Na Alucell podemos locar o seu antigo aparelho ou algum dos dispositivos disponíveis em loja, através de mensalidades fixas.</p>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#FFC000;color:#06111f;font-family:'Nexa',sans-serif;font-weight:700;font-size:17px">2</span><h3 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(21px,5vw,26px);margin:0">Continue usando o mesmo aparelho</h3></div>
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);margin:16px 0 0;min-height:4.8em">Você pode continuar utilizando o mesmo aparelho por contrato de locação, conforme as condições apresentadas pela loja.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
+<section id="avaliacoes" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Avaliação dos nossos clientes</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,2.5vw,24px);margin-top:clamp(28px,4vw,44px)">
+      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5)">Avaliação de cliente</div>
+        </div>
+        <blockquote style="margin:18px 0 0;font-size:clamp(17px,4vw,20px);line-height:1.55;color:rgba(255,255,255,0.9)">Foi maravilhoso! O dinheiro saiu na hora sem burocracia.</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
+          <img src="assets/perfil-4b.png" alt="Luciana Medeiros" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
+          <span style="font-weight:700;font-size:16px">Luciana Medeiros</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5)">Avaliação de cliente</div>
+        </div>
+        <blockquote style="margin:18px 0 0;font-size:clamp(17px,4vw,20px);line-height:1.55;color:rgba(255,255,255,0.9)">Atendimento de excelência, dinheiro rápido e fácil. Recomendo!</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
+          <img src="assets/perfil-3b.png" alt="Amelia Rodrigues" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
+          <span style="font-weight:700;font-size:16px">Amelia Rodrigues</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5)">Avaliação de cliente</div>
+        </div>
+        <blockquote style="margin:18px 0 0;font-size:clamp(17px,4vw,20px);line-height:1.55;color:rgba(255,255,255,0.9)">Ótimo atendimento<br />Equipe tá de parabéns 😛</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
+          <img src="assets/perfil-5b.png" alt="Andreia Alves" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
+          <span style="font-weight:700;font-size:16px">Andreia Alves</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" data-reveal-group style="padding:0 clamp(16px,4vw,48px) clamp(48px,9vw,104px)">
+  <div style="max-width:880px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Perguntas frequentes</div>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 clamp(24px,4vw,40px)">Dúvidas antes de vir até a loja</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ faq }}" as="item" hint-placeholder-count="5">
+        <div style="background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:16px;overflow:hidden">
+          <button onClick="{{ item.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:transparent;border:0;color:#ffffff;font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(16px,4vw,18px);line-height:1.4;padding:20px clamp(16px,3vw,24px);cursor:pointer;min-height:44px" style-hover="color:#FFC000">
+            <span>{{ item.q }}</span>
+            <span style="flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(255,192,0,0.14);color:#FFC000;font-size:18px;line-height:1">{{ item.sign }}</span>
+          </button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 clamp(16px,3vw,24px) 22px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72)">{{ item.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px);background:#0b1a2d;border-top:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Atendimento na loja</div>
+    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0">Venha avaliar seu smartphone</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="https://www.google.com/maps/place/Alucell/@-20.4659382,-54.6168543,17z/data=!3m1!4b1!4m6!3m5!1s0x9486e7ef599ae55d:0xb812331ece7d8541!8m2!3d-20.4659382!4d-54.6168543" target="_blank" rel="noopener" style="display:block;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Endereço</div>
+          <div style="font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;line-height:1.4;margin-top:8px">Rua 14 de Julho, 1671 — Centro<br />Campo Grande · MS, 79002-335</div>
+          <div style="color:#FFC000;font-weight:700;font-size:15px;margin-top:12px">Abrir no Google Maps →</div>
+        </a>
+        <div style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px">
+          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+          <span style="min-width:0">
+            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Horário de funcionamento</span>
+            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;line-height:1.4;margin-top:8px;white-space:pre-line">{{ horario }}</span>
+          </span>
+        </div>
+        <a href="tel:+556730234002" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"></path></svg></span>
+          <span style="min-width:0">
+            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Telefone</span>
+            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px">(67) 3023-4002</span>
+          </span>
+        </a>
+        <a href="mailto:contato@alucell.com.br" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
+          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg></span>
+          <span style="min-width:0">
+            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">E-mail</span>
+            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px;word-break:break-all">contato@alucell.com.br</span>
+          </span>
+        </a>
+      </div>
+      <img src="assets/fachada.jpg" alt="Fachada da loja Alucell na Rua 14 de Julho, 1671, Centro de Campo Grande" style="display:block;width:100%;height:100%;min-height:260px;object-fit:cover;object-position:40% center;border-radius:18px" />
+      <div style="grid-column:1 / -1;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);min-height:360px;display:flex">
+        <iframe title="Mapa da loja Alucell" src="https://maps.google.com/maps?q=Alucell%2C%20-20.4659382%2C-54.6168543&amp;ll=-20.4659382%2C-54.6168543&amp;z=17&amp;output=embed" style="width:100%;min-height:360px;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="aparelhos" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px)">
   <div style="max-width:1240px;margin:0 auto">
-    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Catálogo</div>
+    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Quero alugar um aparelho</div>
     <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;max-width:16em">Aparelhos disponíveis para locação</h2>
     <p style="font-size:clamp(16px,4vw,18px);line-height:1.55;color:rgba(255,255,255,0.65);margin:14px 0 0;max-width:34em">Aparelhos usados, em perfeito estado. Mediante disponibilidade em loja.</p>
-    <div style="display:{{ catDisplay }};grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:clamp(12px,2.5vw,24px);margin-top:clamp(28px,4vw,48px);overflow-x:{{ catOverflow }};scroll-snap-type:x mandatory;scrollbar-width:none;margin-left:{{ catBleed }};margin-right:{{ catBleed }};padding-left:{{ catPad }};padding-right:{{ catPad }}">
+    <div ref="{{ catRef }}" onScroll="{{ catOnScroll }}" style="display:{{ catDisplay }};gap:{{ catGap }};-webkit-mask-image:{{ catMask }};mask-image:{{ catMask }};margin-top:clamp(28px,4vw,48px);overflow-x:{{ catOverflow }};scroll-snap-type:x mandatory;scrollbar-width:none;margin-left:{{ catBleed }};margin-right:{{ catBleed }};padding-left:{{ catPad }};padding-right:{{ catPad }}">
       <sc-for list="{{ aparelhos }}" as="d" hint-placeholder-count="5">
-        <article style="display:flex;flex-direction:column;flex:{{ catCardFlex }};width:{{ catCardWidth }};scroll-snap-align:center;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden">
+        <article style="display:flex;flex-direction:column;flex:{{ catCardFlex }};width:{{ catCardWidth }};scroll-snap-align:{{ catSnap }};background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;overflow:hidden">
           <div style="width:100%;height:{{ catImgHeight }};aspect-ratio:{{ catImgRatio }};flex:none;background:#061623">{{ d.img }}</div>
           <div style="display:flex;flex-direction:column;flex:1;padding:clamp(18px,3vw,24px)">
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">{{ d.marca }}</div>
@@ -178,101 +282,12 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
         </article>
       </sc-for>
     </div>
-  </div>
-</section>
-
-<section id="avaliacoes" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px)">
-  <div style="max-width:1240px;margin:0 auto">
-    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Avaliação dos nossos clientes</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)">
-      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
-        <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
-        <blockquote style="margin:18px 0 0;font-size:clamp(16px,4vw,19px);line-height:1.55;color:rgba(255,255,255,0.88)">Ter um bom celular tem dindim nas mãos garantido! Ótimo atendimento, bem explicado e detalhado, bom negócio e agilidade. E mais, pegue o valor avaliado e ainda sai com seu celular. Gostei. Sem avalista, sem fiador, sem caução. Bora lá !!!</blockquote>
-        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
-          <img src="assets/perfil-1.png" alt="Wesley Santos" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
-          <span style="font-weight:700;font-size:16px">Wesley Santos</span>
-        </figcaption>
-      </figure>
-      <figure style="margin:0;display:flex;flex-direction:column;background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:clamp(22px,4vw,34px)">
-        <div style="color:#FFC000;font-size:18px;letter-spacing:3px">★★★★★</div>
-        <blockquote style="margin:18px 0 0;font-size:clamp(16px,4vw,19px);line-height:1.55;color:rgba(255,255,255,0.88)">EXCELENTE ATENDIMENTO, indico para pessoas que querem um produto e/ou serviço de qualidade, respeito ao cliente e seriedade no trabalho prestado.</blockquote>
-        <figcaption style="display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:24px">
-          <img src="assets/perfil-2.png" alt="Natália Alves" style="display:block;width:52px;height:52px;flex:none;border-radius:50%;object-fit:cover;object-position:center 22%" />
-          <span style="font-weight:700;font-size:16px">Natália Alves</span>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="instagram" data-reveal-group style="padding:clamp(0px,12vw,170px) clamp(16px,4vw,48px) clamp(48px,14vw,190px)">
-  <div style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,#FFC000,#e0a400);border-radius:28px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(22px,4vw,48px);align-items:center">
-    <div style="color:#06111f">
-      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(6,17,31,0.6)">Instagram</div>
-      <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(26px,5vw,40px);line-height:1.05;letter-spacing:-0.02em;margin:14px 0 0;text-wrap:balance">Siga nosso Instagram para participar de sorteios exclusivos!</h2>
-      <p style="font-size:clamp(16px,4vw,18px);line-height:1.5;margin:14px 0 0;color:rgba(6,17,31,0.78)">É a nossa forma de agradecer sua parceria. Siga e boa sorte!</p>
-      <a href="https://www.instagram.com/alucell.cg/" target="_blank" rel="noopener" style="display:inline-block;margin-top:26px;background:#06111f;color:#ffffff;font-weight:700;font-size:17px;padding:16px 28px;border-radius:14px" style-hover="background:#ffffff;color:#06111f">@alucell.cg</a>
-    </div>
-    <div style="justify-self:center;align-self:center;width:100%;max-width:360px;margin-top:clamp(-150px, 900px - 100vw, 0px);margin-bottom:clamp(-150px, 900px - 100vw, 0px)">
-      <sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}">
-        <div style="border-radius:22px;overflow:hidden;box-shadow:0 24px 50px rgba(6,17,31,0.35)">{{ instagramEmbed }}</div>
-      </sc-if>
-      <sc-if value="{{ noPost }}" hint-placeholder-val="{{ true }}">
-        <image-slot id="instagram-arte" shape="rounded" radius="22" placeholder="Arte do sorteio" style="width:100%;aspect-ratio:1/1"></image-slot>
-      </sc-if>
-    </div>
-  </div>
-</section>
-
-<section id="duvidas" data-reveal-group style="padding:0 clamp(16px,4vw,48px) clamp(48px,9vw,104px)">
-  <div style="max-width:880px;margin:0 auto">
-    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Perguntas frequentes</div>
-    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 clamp(24px,4vw,40px)">Dúvidas antes de vir até a loja</h2>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <sc-for list="{{ faq }}" as="item" hint-placeholder-count="5">
-        <div style="background:#0b1a2d;border:1px solid rgba(255,255,255,0.09);border-radius:16px;overflow:hidden">
-          <button onClick="{{ item.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:transparent;border:0;color:#ffffff;font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(16px,4vw,18px);line-height:1.4;padding:20px clamp(16px,3vw,24px);cursor:pointer;min-height:44px" style-hover="color:#FFC000">
-            <span>{{ item.q }}</span>
-            <span style="flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(255,192,0,0.14);color:#FFC000;font-size:18px;line-height:1">{{ item.sign }}</span>
-          </button>
-          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
-            <p style="margin:0;padding:0 clamp(16px,3vw,24px) 22px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72)">{{ item.a }}</p>
-          </sc-if>
-        </div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:4px;margin-top:22px">
+      <sc-for list="{{ catDots }}" as="dot" hint-placeholder-count="5">
+        <button onClick="{{ dot.go }}" aria-label="{{ dot.label }}" style="display:grid;place-items:center;width:28px;height:28px;padding:0;background:transparent;border:0;cursor:pointer">
+          <span style="display:block;height:8px;width:{{ dot.w }};border-radius:999px;background:{{ dot.bg }};transition:width .25s ease, background .25s ease"></span>
+        </button>
       </sc-for>
-    </div>
-  </div>
-</section>
-
-<section id="contato" data-reveal-group style="padding:clamp(48px,9vw,104px) clamp(16px,4vw,48px);background:#0b1a2d;border-top:1px solid rgba(255,255,255,0.06)">
-  <div style="max-width:1240px;margin:0 auto">
-    <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#FFC000;font-weight:700">Já é cliente Alucell?</div>
-    <h2 style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(30px,7vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0">Venha realizar um orçamento</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)">
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <a href="https://www.google.com/maps/place/Alucell/@-20.4659382,-54.6168543,17z/data=!3m1!4b1!4m6!3m5!1s0x9486e7ef599ae55d:0xb812331ece7d8541!8m2!3d-20.4659382!4d-54.6168543" target="_blank" rel="noopener" style="display:block;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
-          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Endereço</div>
-          <div style="font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;line-height:1.4;margin-top:8px">Rua 14 de Julho, 1671 — Centro<br />Campo Grande · MS, 79002-335</div>
-          <div style="color:#FFC000;font-weight:700;font-size:15px;margin-top:12px">Abrir no Google Maps →</div>
-        </a>
-        <a href="tel:+556730234002" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
-          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"></path></svg></span>
-          <span style="min-width:0">
-            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">Telefone</span>
-            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px">(67) 3023-4002</span>
-          </span>
-        </a>
-        <a href="mailto:contato@alucell.com.br" style="display:flex;align-items:center;gap:16px;background:#06111f;border:1px solid rgba(255,255,255,0.09);border-radius:18px;padding:22px" style-hover="border-color:#FFC000">
-          <span style="flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,192,0,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 7 8.5 6 8.5-6"></path></svg></span>
-          <span style="min-width:0">
-            <span style="display:block;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700">E-mail</span>
-            <span style="display:block;font-size:clamp(17px,4vw,20px);font-weight:700;color:#ffffff;margin-top:8px;word-break:break-all">contato@alucell.com.br</span>
-          </span>
-        </a>
-      </div>
-      <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);min-height:320px;display:flex">
-        <iframe title="Mapa da loja Alucell" src="https://maps.google.com/maps?q=Alucell%2C%20-20.4659382%2C-54.6168543&amp;ll=-20.4659382%2C-54.6168543&amp;z=17&amp;output=embed" style="width:100%;min-height:320px;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
     </div>
   </div>
 </section>
@@ -281,7 +296,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
   <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between">
     <div style="flex:1 1 240px">
       <span style="display:flex;align-items:center;gap:12px"><img src="assets/alucell-mark-w.svg" alt="" style="height:44px;width:auto;display:block" /><span style="font-family:'Nexa',sans-serif;font-weight:700;font-size:28px;letter-spacing:-0.01em">Alucell</span></span>
-      <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:14px;font-weight:700;letter-spacing:0.06em">LOCADORA ALUCELL LTDA.</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:14px;font-weight:700;letter-spacing:0.06em">LOCADORA ALUCELL LTDA. · CNPJ 52.959.757/0001-00</div>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
       <a href="https://www.instagram.com/alucell.cg/" target="_blank" rel="noopener" style="padding:13px 20px;border:1px solid rgba(255,255,255,0.18);border-radius:12px;color:#ffffff;font-weight:700;font-size:15px" style-hover="border-color:#FFC000;color:#FFC000">Instagram</a>
@@ -293,10 +308,10 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;instagramPostUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/p/DdKBR_AiXU7/&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Instagram&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;556730234002&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;556730234002&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;horario&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
 class Component extends DCLogic {
   state = { openFaq: 0, openSpec: -1, menuOpen: false, wide: typeof window !== "undefined" && window.innerWidth >= 700 };
-  get igUrl() { return this.props.instagramPostUrl ?? "https://www.instagram.com/p/DdKBR_AiXU7/"; }
+  get igUrl() { return ""; }
   reveal(el) {
     const d = +(el.dataset.revealDelay || 0);
     el.style.animationDelay = (d * 90) + "ms";
@@ -392,18 +407,21 @@ class Component extends DCLogic {
   renderVals() {
     const url = this.igUrl;
     const items = [
-      { q: "Preciso ficar sem meu celular?", a: "Não. Depois da venda você pode locar o mesmo aparelho e continuar usando normalmente, pagando uma mensalidade fixa." },
-      { q: "Em quanto tempo recebo o dinheiro?", a: "Após a avaliação e a aprovação da venda, o valor acordado fica disponível na sua conta em até 24 horas." },
-      { q: "Precisa de avalista, fiador ou caução?", a: "Não. Sem avalista, sem fiador e sem caução." },
-      { q: "E se eu quiser outro aparelho?", a: "Você pode locar um dos dispositivos disponíveis em loja, também com mensalidade fixa." },
-      { q: "Como faço para começar?", a: "Venha até a loja na Rua 14 de Julho, 1671 — Centro, Campo Grande. A avaliação é rápida e feita na hora." }
+      { q: "Isso é um empréstimo?", a: "Não. A operação é de compra do seu smartphone e locação do aparelho, conforme os instrumentos utilizados pela loja." },
+      { q: "Posso continuar com o mesmo celular?", a: "Sim. Após a venda, você pode continuar utilizando o mesmo aparelho por contrato de locação, com mensalidade definida na proposta. A preencher pela operação antes da publicação." },
+      { q: "Quais aparelhos são aceitos?", a: "A preencher pela operação antes da publicação. (modelos, estado de conservação e critérios de avaliação)" },
+      { q: "O que preciso levar?", a: "A preencher pela operação antes da publicação. (documentos e requisitos confirmados pela loja)" },
+      { q: "Como é definida a mensalidade?", a: "A preencher pela operação antes da publicação. (como a proposta é apresentada e aceita antes da contratação)" },
+      { q: "Quando começa o prazo de até 24 horas?", a: "A preencher pela operação antes da publicação. (marco exato validado pela operação)" },
+      { q: "Como funciona a consulta de CPF?", a: "A preencher pela operação antes da publicação. (política praticada; diferença entre identificação cadastral e consulta a SPC ou Serasa)" },
+      { q: "Quais são as condições da locação?", a: "A preencher pela operação antes da publicação. (duração, pagamento, encerramento e consequências de atraso segundo o contrato)" }
     ];
     const aparelhos = [
       { slot: "ap-poco-c75", foto: "assets/ap-poco-c75.png", marca: "Poco", modelo: "C75", capacidade: "128GB",
         tela: "IPS LCD, HD+ (720 x 1640 pixels, 120Hz)", chip: "MediaTek Helio G81 Ultra",
         camera: "Câmera Principal: 50 MP.", armazenamento: "128 GB" },
       { slot: "ap-redmi-14c", foto: "assets/ap-redmi-14c.png", marca: "Xiaomi", modelo: "Redmi 14C", capacidade: "128GB",
-        tela: "Super AMOLED, Full HD+ (1080 x 2340 pixels)", chip: "MediaTek Dimensity 6100+",
+        tela: "IPS LCD 6,88\", HD+ (1640 x 720 pixels, 120Hz)", chip: "MediaTek Helio G81-Ultra",
         camera: "Câmera Principal: 50 MP.", armazenamento: "128 GB" },
       { slot: "ap-galaxy-s23", foto: "assets/ap-galaxy-s23.png", marca: "Samsung", modelo: "Galaxy S23", capacidade: "256GB",
         tela: "Dynamic AMOLED 2X, Full HD+ (1080 x 2340 - 120Hz)", chip: "Qualcomm Snapdragon 8 Gen 2",
@@ -411,7 +429,7 @@ class Component extends DCLogic {
       { slot: "ap-note-13", foto: "assets/ap-note-13.png", marca: "Xiaomi", modelo: "Redmi Note 13", capacidade: "256GB",
         tela: "AMOLED, Full HD+ (1080 x 2400 pixels, 120Hz)", chip: "Qualcomm Snapdragon 685",
         camera: "108 MP + 8 MP (Ultrawide) + 2 MP (Macro)", armazenamento: "256 GB" },
-      { slot: "ap-galaxy-a15", foto: "assets/ap-galaxy-a15.png", marca: "Samsung", modelo: "Galaxy A15", capacidade: "5G",
+      { slot: "ap-galaxy-a15", foto: "assets/ap-galaxy-a15.png", marca: "Samsung", modelo: "Galaxy A15 5G", capacidade: "128GB",
         tela: "Super AMOLED, Full HD+ (1080 x 2340 pixels)", chip: "MediaTek Dimensity 6100+",
         camera: "Câmera Principal: 50 MP.", armazenamento: "128 GB" }
     ].map((d, i) => ({
@@ -432,11 +450,39 @@ class Component extends DCLogic {
     const w = this.state.wide;
     return {
       aparelhos,
+      waMain: "https://wa.me/" + (this.props.whatsapp ?? "556730234002") + "?text=" + encodeURIComponent("Olá! Quero saber como funciona a avaliação do meu celular."),
+      horario: this.props.horario || "A confirmar",
       catCompact: false,
-      catDisplay: w ? "grid" : "flex",
-      catOverflow: w ? "visible" : "auto",
-      catCardFlex: w ? "auto" : "0 0 78%",
-      catCardWidth: w ? "auto" : "78%",
+      heroBtnCols: w ? "1fr 1fr" : "1fr",
+      heroBr: w ? "inline" : "none",
+      heroNowrap: w ? "nowrap" : "normal",
+      catDisplay: "flex",
+      catOverflow: "auto",
+      catCardFlex: w ? "0 0 calc((100% - 72px) / 3.5)" : "0 0 78%",
+      catCardWidth: w ? "calc((100% - 72px) / 3.5)" : "78%",
+      catSnap: "start",
+      catGap: w ? "24px" : "12px",
+      catRef: this.catRef || (this.catRef = React.createRef()),
+      catMask: this.state.catEnd ? "none" : "linear-gradient(to right, #000 0%, #000 82%, rgba(0,0,0,0.12) 100%)",
+      catOnScroll: () => {
+        const el = this.catRef.current; if (!el || !el.firstElementChild) return;
+        const step = el.firstElementChild.getBoundingClientRect().width + (w ? 24 : 12);
+        const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+        const idx = end ? aparelhos.length - 1 : Math.round(el.scrollLeft / step);
+        if (idx !== (this.state.catIdx || 0) || end !== !!this.state.catEnd) this.setState({ catIdx: idx, catEnd: end });
+      },
+      catDots: aparelhos.map((_, i) => {
+        const on = (this.state.catIdx || 0) === i;
+        return {
+          label: "Ir para o aparelho " + (i + 1),
+          w: on ? "24px" : "8px",
+          bg: on ? "#FFC000" : "rgba(255,255,255,0.28)",
+          go: () => {
+            const el = this.catRef.current; if (!el || !el.children[i]) return;
+            el.scrollTo({ left: el.children[i].offsetLeft - el.firstElementChild.offsetLeft, behavior: "smooth" });
+          }
+        };
+      }),
       catTitleMin: w ? "2.3em" : "auto",
       catImgHeight: w ? "clamp(230px,24vw,300px)" : "auto",
       catImgRatio: w ? "auto" : "1 / 1",
