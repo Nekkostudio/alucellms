@@ -82,7 +82,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
     <img src="assets/hero-mob.png" alt="Seu celular vira dinheiro na conta e você continua usando ele" style="display:block;width:100%;max-width:520px;margin:0 auto -8px;aspect-ratio:1/1;object-fit:contain" />
   </sc-if>
   <div style="flex:1 1 320px;min-width:0;max-width:600px">
-    <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,5.2vw,68px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance"><span style="white-space:{{ heroNowrap }}">Tá precisando</span><br style="display:{{ heroBr }}" /> <span style="white-space:{{ heroNowrap }}">de dinheiro? <span style="color:#FFC000">Tem</span></span><br style="display:{{ heroBr }}" /> <span style="color:#FFC000;white-space:{{ heroNowrap }}">um smartphone?</span></h1>
+    <h1 data-reveal data-reveal-delay="1" style="font-family:'Nexa',sans-serif;font-weight:700;font-size:clamp(38px,5.2vw,68px);line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance"><span style="color:#FFC000">Tem um smartphone?</span></h1>
     <p data-reveal data-reveal-delay="2" style="font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:rgba(255,255,255,0.72);margin:20px 0 0;max-width:30em;text-wrap:pretty">Na ALUCELL, você pode receber pelo seu aparelho e continuar usando ele. Fale com nossa equipe e saiba como funciona.</p>
     <div data-reveal data-reveal-delay="3" style="display:grid;grid-template-columns:{{ heroBtnCols }};gap:12px;margin-top:32px">
       <a href="{{ waMain }}" target="_blank" rel="noopener" style="flex:1 1 200px;display:flex;align-items:center;justify-content:center;gap:10px;background:#FFC000;color:#06111f;font-weight:700;font-size:17px;padding:18px 26px;border-radius:14px;white-space:nowrap" style-hover="background:#ffffff;color:#06111f"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.42 1.3-1.96 1.35-.5.05-.98.24-3.3-.69-2.8-1.1-4.58-3.97-4.72-4.15-.14-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.1.18-.14.3-.28.46l-.42.48c-.14.14-.28.29-.12.57.16.27.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.7-.82.89-1.1.18-.27.37-.23.62-.14.25.09 1.6.76 1.88.9.27.13.46.2.53.31.07.12.07.68-.17 1.36z"></path></svg>Falar no WhatsApp</a>
@@ -190,7 +190,7 @@ image-slot[data-mini] { background: #0b1a2d; box-shadow: inset 0 0 0 1px rgba(25
             <span style="flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(255,192,0,0.14);color:#FFC000;font-size:18px;line-height:1">{{ item.sign }}</span>
           </button>
           <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
-            <p style="margin:0;padding:0 clamp(16px,3vw,24px) 22px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72)">{{ item.a }}</p>
+            <p style="margin:0;padding:0 clamp(16px,3vw,24px) 22px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);white-space:pre-line">{{ item.a }}</p>
           </sc-if>
         </div>
       </sc-for>
@@ -409,11 +409,10 @@ class Component extends DCLogic {
     const items = [
       { q: "Isso é um empréstimo?", a: "Não. A operação é de compra do seu smartphone e locação do aparelho, conforme os instrumentos utilizados pela loja." },
       { q: "Posso continuar com o mesmo celular?", a: "Sim. Após a venda, você pode continuar utilizando o mesmo aparelho por contrato de locação, com mensalidade definida na proposta. A preencher pela operação antes da publicação." },
-      { q: "Quais aparelhos são aceitos?", a: "A preencher pela operação antes da publicação. (modelos, estado de conservação e critérios de avaliação)" },
-      { q: "O que preciso levar?", a: "A preencher pela operação antes da publicação. (documentos e requisitos confirmados pela loja)" },
+      { q: "Quais aparelhos são aceitos?", a: "O smartphone deve estar em bom estado de conservação e funcionamento, livre de bloqueios e restrições financeiras, além de pertencer à pessoa que realizará a negociação.\nA marca, o modelo, a memória e as configurações do aparelho podem influenciar na aprovação. A confirmação depende de uma avaliação presencial em nossa loja." },
+      { q: "O que preciso levar?", a: "• Documento oficial com foto (versão física ou digital pelo Gov.br)\n• Comprovante de residência atualizado\n• Smartphone em boas condições de uso" },
       { q: "Como é definida a mensalidade?", a: "A preencher pela operação antes da publicação. (como a proposta é apresentada e aceita antes da contratação)" },
-      { q: "Quando começa o prazo de até 24 horas?", a: "A preencher pela operação antes da publicação. (marco exato validado pela operação)" },
-      { q: "Como funciona a consulta de CPF?", a: "A preencher pela operação antes da publicação. (política praticada; diferença entre identificação cadastral e consulta a SPC ou Serasa)" },
+      { q: "Como funciona a consulta de CPF?", a: "Não realizamos consulta SPC/SERASA." },
       { q: "Quais são as condições da locação?", a: "A preencher pela operação antes da publicação. (duração, pagamento, encerramento e consequências de atraso segundo o contrato)" }
     ];
     const aparelhos = [
