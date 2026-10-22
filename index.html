@@ -1,15 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alucell Campo Grande MS | Receba pelo seu smartphone e continue usando ele</title>
+<meta name="description" content="Na Alucell, em Campo Grande MS, você vende seu smartphone, recebe o valor em até 24h após a aprovação e continua usando o aparelho por contrato de locação. Rua 14 de Julho, 1671, Centro.">
+<link rel="canonical" href="https://www.alucell.com.br/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#06111f">
+<link rel="icon" type="image/svg+xml" href="/assets/alucell-mark-w.svg">
+
+<meta name="geo.region" content="BR-MS">
+<meta name="geo.placename" content="Campo Grande">
+<meta name="geo.position" content="-20.4659382;-54.6168543">
+<meta name="ICBM" content="-20.4659382, -54.6168543">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Alucell">
+<meta property="og:url" content="https://www.alucell.com.br/">
+<meta property="og:title" content="Alucell Campo Grande MS | Receba pelo seu smartphone e continue usando ele">
+<meta property="og:description" content="Venda seu smartphone, receba em até 24h após a aprovação e continue usando o aparelho. Loja na Rua 14 de Julho, 1671, Centro de Campo Grande.">
+<meta property="og:image" content="https://www.alucell.com.br/assets/fachada.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Fachada da loja Alucell na Rua 14 de Julho, 1671, Centro de Campo Grande MS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alucell Campo Grande MS | Receba pelo seu smartphone e continue usando ele">
+<meta name="twitter:description" content="Venda seu smartphone, receba em até 24h após a aprovação e continue usando o aparelho. Loja no Centro de Campo Grande.">
+<meta name="twitter:image" content="https://www.alucell.com.br/assets/fachada.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "@id": "https://www.alucell.com.br/#loja",
+  "name": "Alucell",
+  "description": "Compra de smartphones com locação do aparelho: o cliente vende o celular, recebe o valor e continua usando o aparelho por contrato de locação.",
+  "url": "https://www.alucell.com.br/",
+  "image": "https://www.alucell.com.br/assets/fachada.jpg",
+  "logo": "https://www.alucell.com.br/assets/alucell-mark-w.svg",
+  "telephone": "+55 67 3023-4002",
+  "email": "contato@alucell.com.br",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua 14 de Julho, 1671, Centro",
+    "addressLocality": "Campo Grande",
+    "addressRegion": "MS",
+    "postalCode": "79002-335",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -20.4659382,
+    "longitude": -54.6168543
+  },
+  "hasMap": "https://www.google.com/maps/place/Alucell/@-20.4659382,-54.6168543,17z",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "12:00"
+    }
+  ],
+  "areaServed": { "@type": "City", "name": "Campo Grande" },
+  "sameAs": ["https://www.instagram.com/alucell.cg/"]
+}
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alucell — Receba pelo seu smartphone e continue usando ele | Campo Grande</title>
 <link rel="icon" type="image/svg+xml" href="assets/alucell-mark-w.svg" />
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="" />
 <link href="https://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet" />
@@ -411,7 +481,7 @@ class Component extends DCLogic {
       { q: "Posso continuar com o mesmo celular?", a: "Sim. Após a venda, você pode continuar utilizando o mesmo aparelho por contrato de locação, com mensalidade definida na proposta. A preencher pela operação antes da publicação." },
       { q: "Quais aparelhos são aceitos?", a: "O smartphone deve estar em bom estado de conservação e funcionamento, livre de bloqueios e restrições financeiras, além de pertencer à pessoa que realizará a negociação.\nA marca, o modelo, a memória e as configurações do aparelho podem influenciar na aprovação. A confirmação depende de uma avaliação presencial em nossa loja." },
       { q: "O que preciso levar?", a: "• Documento oficial com foto (versão física ou digital pelo Gov.br)\n• Comprovante de residência atualizado\n• Smartphone em boas condições de uso" },
-      { q: "Como é definida a mensalidade?", a: "A preencher pela operação antes da publicação. (como a proposta é apresentada e aceita antes da contratação)" },
+      { q: "Como é definida a mensalidade?", a: "A mensalidade é definida a depender do modelo do aparelho e do estado de conservação. Consulte os valores e condições disponíveis em uma de nossas lojas." },
       { q: "Como funciona a consulta de CPF?", a: "Não realizamos consulta SPC/SERASA." },
       { q: "Quais são as condições da locação?", a: "A preencher pela operação antes da publicação. (duração, pagamento, encerramento e consequências de atraso segundo o contrato)" }
     ];
@@ -450,7 +520,7 @@ class Component extends DCLogic {
     return {
       aparelhos,
       waMain: "https://wa.me/" + (this.props.whatsapp ?? "556730234002") + "?text=" + encodeURIComponent("Olá! Quero saber como funciona a avaliação do meu celular."),
-      horario: this.props.horario || "A confirmar",
+      horario: this.props.horario || "Segunda a sexta: 8h às 18h\nSábado: 8h às 12h",
       catCompact: false,
       heroBtnCols: w ? "1fr 1fr" : "1fr",
       heroBr: w ? "inline" : "none",
